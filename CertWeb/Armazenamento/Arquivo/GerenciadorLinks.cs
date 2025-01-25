@@ -24,7 +24,7 @@ namespace CertWeb.Armazenamento.Arquivo
         }
         public static List<Link> LerLinks()
         {
-            if (ListaLinks == null)
+            if (ListaLinks == null || !ListaLinks.Any())
             {
                 string conteudoArquivo = new GerenciadorArquivos().Ler(NomeArquivo);
 

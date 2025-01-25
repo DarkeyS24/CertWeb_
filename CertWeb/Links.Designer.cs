@@ -37,12 +37,14 @@
             // 
             // flowLinks
             // 
+            this.flowLinks.AutoScroll = true;
             this.flowLinks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLinks.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLinks.Location = new System.Drawing.Point(18, 256);
             this.flowLinks.Name = "flowLinks";
             this.flowLinks.Size = new System.Drawing.Size(964, 235);
             this.flowLinks.TabIndex = 0;
+            this.flowLinks.WrapContents = false;
             // 
             // label1
             // 
@@ -71,20 +73,26 @@
             // descTxt
             // 
             this.descTxt.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.descTxt.Location = new System.Drawing.Point(18, 48);
             this.descTxt.Name = "descTxt";
             this.descTxt.Size = new System.Drawing.Size(421, 40);
             this.descTxt.TabIndex = 3;
             this.descTxt.Text = "Descrição";
+            this.descTxt.Enter += new System.EventHandler(this.descTxt_Enter);
+            this.descTxt.Leave += new System.EventHandler(this.descTxt_Leave);
             // 
             // linkTxt
             // 
             this.linkTxt.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.linkTxt.Location = new System.Drawing.Point(445, 48);
             this.linkTxt.Name = "linkTxt";
             this.linkTxt.Size = new System.Drawing.Size(421, 40);
             this.linkTxt.TabIndex = 4;
             this.linkTxt.Text = "Link";
+            this.linkTxt.Enter += new System.EventHandler(this.linkTxt_Enter);
+            this.linkTxt.Leave += new System.EventHandler(this.linkTxt_Leave);
             // 
             // Links
             // 
