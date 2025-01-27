@@ -46,33 +46,34 @@
             // 
             this.tempoMedioLbl.AutoSize = true;
             this.tempoMedioLbl.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tempoMedioLbl.Location = new System.Drawing.Point(247, 177);
+            this.tempoMedioLbl.Location = new System.Drawing.Point(243, 179);
             this.tempoMedioLbl.Name = "tempoMedioLbl";
-            this.tempoMedioLbl.Size = new System.Drawing.Size(204, 96);
+            this.tempoMedioLbl.Size = new System.Drawing.Size(238, 96);
             this.tempoMedioLbl.TabIndex = 0;
-            this.tempoMedioLbl.Text = "30m";
+            this.tempoMedioLbl.Text = "00:00";
+            this.tempoMedioLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Leelawadee", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(273, 262);
+            this.label2.Location = new System.Drawing.Point(266, 262);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 27);
+            this.label2.Size = new System.Drawing.Size(184, 27);
             this.label2.TabIndex = 1;
-            this.label2.Text = "tempo médio";
+            this.label2.Text = "tempo decorrido";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label3.Location = new System.Drawing.Point(301, 289);
+            this.label3.Location = new System.Drawing.Point(326, 289);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 24);
+            this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 2;
-            this.label3.Text = "execução";
+            this.label3.Text = "tarefa";
             // 
             // label4
             // 
@@ -136,7 +137,7 @@
             this.ultimaExecuçãoLbl.Name = "ultimaExecuçãoLbl";
             this.ultimaExecuçãoLbl.Size = new System.Drawing.Size(238, 96);
             this.ultimaExecuçãoLbl.TabIndex = 6;
-            this.ultimaExecuçãoLbl.Text = "15:35";
+            this.ultimaExecuçãoLbl.Text = "00:00";
             // 
             // label10
             // 
@@ -165,11 +166,11 @@
             this.errosLbl.AutoSize = true;
             this.errosLbl.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errosLbl.ForeColor = System.Drawing.Color.Red;
-            this.errosLbl.Location = new System.Drawing.Point(838, 177);
+            this.errosLbl.Location = new System.Drawing.Point(836, 177);
             this.errosLbl.Name = "errosLbl";
             this.errosLbl.Size = new System.Drawing.Size(84, 96);
             this.errosLbl.TabIndex = 9;
-            this.errosLbl.Text = "9";
+            this.errosLbl.Text = "0";
             // 
             // Painel
             // 

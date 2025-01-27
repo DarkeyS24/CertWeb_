@@ -17,10 +17,12 @@ namespace CertWeb
     {
         private Link LinkEdit { get; set; }
         private Tarefas _tarefa;
-        public Links(Tarefas tarefa)
+        private Painel _painel;
+        public Links(Tarefas tarefa, Painel painel)
         {
             InitializeComponent();
             _tarefa = tarefa;
+            _painel = painel;
             CarregarLinks();
         }
 
@@ -47,7 +49,8 @@ namespace CertWeb
         private void CarregarLinks()
         {
             flowLinks.Controls.Clear();
-            _tarefa.CarregarLinks();    
+            _tarefa.CarregarLinks(); 
+            _painel.QuantidadeLinks();
 
             List<Link> links = GerenciadorLinks.LerLinks();
             if (links != null)

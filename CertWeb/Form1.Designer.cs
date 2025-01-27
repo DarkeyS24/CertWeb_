@@ -38,9 +38,9 @@
             this.pnDragDrop = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.fechar = new System.Windows.Forms.Button();
-            this.pnTarefas = new CertWeb.Tarefas();
-            this.pnLinks = new CertWeb.Links(this.pnTarefas);
             this.pnInicial = new CertWeb.Painel();
+            this.pnTarefas = new CertWeb.Tarefas(this.pnInicial);
+            this.pnLinks = new CertWeb.Links(this.pnTarefas, this.pnInicial);
             this.pnSobre = new CertWeb.Sobre();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();

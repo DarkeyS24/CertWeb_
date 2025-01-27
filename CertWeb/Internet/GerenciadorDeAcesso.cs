@@ -12,8 +12,17 @@ namespace CertWeb.Internet
     {
         public static string AcesssarLink(string Link) 
         {
-            WebClient client = new WebClient();
-            return client.DownloadString(Link);
+            try
+            {
+                WebClient client = new WebClient();
+                return client.DownloadString(Link);
+            }
+            catch (Exception ex)
+            {
+                Painel.Model.QtdErros++;
+                return null;
+            }
+           
         }
     }
 }
