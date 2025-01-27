@@ -63,5 +63,29 @@ namespace CertWeb
             pnTarefas.Visible = false;
             pn.Visible = true;  
         }
+
+        private bool pressBtn = false;
+        private Point formPoint;
+        private Point cursorPoint;
+        private void pnDragDrop_MouseDown(object sender, MouseEventArgs e)
+        {
+            pressBtn = true;
+            formPoint = this.Location;
+            cursorPoint = Cursor.Position;
+        }
+
+        private void pnDragDrop_MouseUp(object sender, MouseEventArgs e)
+        {
+            pressBtn = false;
+        }
+
+        private void pnDragDrop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (pressBtn == true)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(cursorPoint));
+                this.Location = Point.Add(formPoint, new Size(dif));
+            }
+        }
     }
 }

@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnIndicador = new System.Windows.Forms.Panel();
             this.sobreBtn = new System.Windows.Forms.Button();
             this.linksBtn = new System.Windows.Forms.Button();
             this.tarefasBtn = new System.Windows.Forms.Button();
             this.painelBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnDragDrop = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.fechar = new System.Windows.Forms.Button();
-            this.pnIndicador = new System.Windows.Forms.Panel();
-            this.pnLinks = new CertWeb.Links();
-            this.pnInicial = new CertWeb.Painel();
             this.pnTarefas = new CertWeb.Tarefas();
+            this.pnLinks = new CertWeb.Links(this.pnTarefas);
+            this.pnInicial = new CertWeb.Painel();
             this.pnSobre = new CertWeb.Sobre();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -54,10 +54,18 @@
             this.panel1.Controls.Add(this.linksBtn);
             this.panel1.Controls.Add(this.tarefasBtn);
             this.panel1.Controls.Add(this.painelBtn);
-            this.panel1.Location = new System.Drawing.Point(1, 12);
+            this.panel1.Location = new System.Drawing.Point(-6, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(308, 685);
+            this.panel1.Size = new System.Drawing.Size(315, 739);
             this.panel1.TabIndex = 1;
+            // 
+            // pnIndicador
+            // 
+            this.pnIndicador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
+            this.pnIndicador.Location = new System.Drawing.Point(11, 25);
+            this.pnIndicador.Name = "pnIndicador";
+            this.pnIndicador.Size = new System.Drawing.Size(10, 100);
+            this.pnIndicador.TabIndex = 9;
             // 
             // sobreBtn
             // 
@@ -68,7 +76,7 @@
             this.sobreBtn.ForeColor = System.Drawing.Color.White;
             this.sobreBtn.Image = ((System.Drawing.Image)(resources.GetObject("sobreBtn.Image")));
             this.sobreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sobreBtn.Location = new System.Drawing.Point(3, 558);
+            this.sobreBtn.Location = new System.Drawing.Point(7, 585);
             this.sobreBtn.Name = "sobreBtn";
             this.sobreBtn.Size = new System.Drawing.Size(305, 100);
             this.sobreBtn.TabIndex = 13;
@@ -86,9 +94,9 @@
             this.linksBtn.ForeColor = System.Drawing.Color.White;
             this.linksBtn.Image = ((System.Drawing.Image)(resources.GetObject("linksBtn.Image")));
             this.linksBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linksBtn.Location = new System.Drawing.Point(3, 391);
+            this.linksBtn.Location = new System.Drawing.Point(7, 395);
             this.linksBtn.Name = "linksBtn";
-            this.linksBtn.Size = new System.Drawing.Size(302, 100);
+            this.linksBtn.Size = new System.Drawing.Size(306, 100);
             this.linksBtn.TabIndex = 12;
             this.linksBtn.Text = "Links";
             this.linksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -104,7 +112,7 @@
             this.tarefasBtn.ForeColor = System.Drawing.Color.White;
             this.tarefasBtn.Image = ((System.Drawing.Image)(resources.GetObject("tarefasBtn.Image")));
             this.tarefasBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tarefasBtn.Location = new System.Drawing.Point(3, 201);
+            this.tarefasBtn.Location = new System.Drawing.Point(10, 217);
             this.tarefasBtn.Name = "tarefasBtn";
             this.tarefasBtn.Size = new System.Drawing.Size(302, 100);
             this.tarefasBtn.TabIndex = 11;
@@ -122,23 +130,26 @@
             this.painelBtn.ForeColor = System.Drawing.Color.White;
             this.painelBtn.Image = ((System.Drawing.Image)(resources.GetObject("painelBtn.Image")));
             this.painelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.painelBtn.Location = new System.Drawing.Point(3, 25);
+            this.painelBtn.Location = new System.Drawing.Point(7, 25);
             this.painelBtn.Name = "painelBtn";
-            this.painelBtn.Size = new System.Drawing.Size(302, 100);
+            this.painelBtn.Size = new System.Drawing.Size(306, 100);
             this.painelBtn.TabIndex = 4;
             this.painelBtn.Text = "Painel";
             this.painelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.painelBtn.UseVisualStyleBackColor = false;
             this.painelBtn.Click += new System.EventHandler(this.painelBtn_Click);
             // 
-            // panel2
+            // pnDragDrop
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(1, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1311, 19);
-            this.panel2.TabIndex = 2;
+            this.pnDragDrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
+            this.pnDragDrop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnDragDrop.Location = new System.Drawing.Point(1, 0);
+            this.pnDragDrop.Name = "pnDragDrop";
+            this.pnDragDrop.Size = new System.Drawing.Size(1311, 19);
+            this.pnDragDrop.TabIndex = 2;
+            this.pnDragDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseDown);
+            this.pnDragDrop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseMove);
+            this.pnDragDrop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseUp);
             // 
             // pictureBox5
             // 
@@ -163,14 +174,6 @@
             this.fechar.Text = "X";
             this.fechar.UseVisualStyleBackColor = false;
             this.fechar.Click += new System.EventHandler(this.FecharAction);
-            // 
-            // pnIndicador
-            // 
-            this.pnIndicador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
-            this.pnIndicador.Location = new System.Drawing.Point(11, 25);
-            this.pnIndicador.Name = "pnIndicador";
-            this.pnIndicador.Size = new System.Drawing.Size(10, 100);
-            this.pnIndicador.TabIndex = 9;
             // 
             // pnLinks
             // 
@@ -209,9 +212,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1307, 697);
+            this.ClientSize = new System.Drawing.Size(1312, 743);
             this.Controls.Add(this.fechar);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnDragDrop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pnLinks);
@@ -230,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnDragDrop;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button painelBtn;
         private System.Windows.Forms.Button linksBtn;

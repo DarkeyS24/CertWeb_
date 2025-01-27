@@ -13,6 +13,7 @@ namespace CertWeb.Armazenamento.Arquivo
     {
         private static string NomeArquivo = "links.txt";
         private static List<Link> ListaLinks = new List<Link>();
+
         public static void AdicionarLink(Link link)
         {
             ListaLinks.Add(link);
@@ -22,6 +23,7 @@ namespace CertWeb.Armazenamento.Arquivo
         {
             ListaLinks.Remove(link);
         }
+
         public static List<Link> LerLinks()
         {
             if (ListaLinks == null || !ListaLinks.Any())
@@ -30,7 +32,7 @@ namespace CertWeb.Armazenamento.Arquivo
 
                 if (string.IsNullOrEmpty(conteudoArquivo))
                 {
-                    return new List<Link>();
+                    return ListaLinks;
                 }
 
                 ListaLinks = JsonConvert.DeserializeObject<List<Link>>(conteudoArquivo);

@@ -16,9 +16,11 @@ namespace CertWeb
     public partial class Links : UserControl
     {
         private Link LinkEdit { get; set; }
-        public Links()
+        private Tarefas _tarefa;
+        public Links(Tarefas tarefa)
         {
             InitializeComponent();
+            _tarefa = tarefa;
             CarregarLinks();
         }
 
@@ -38,43 +40,46 @@ namespace CertWeb
             }
 
             CarregarLinks();
-            descTxt.Text = "Descrição";
-            linkTxt.Text = "Link";
+            descTxt.Text = Texto.txtDesc ;
+            linkTxt.Text = Texto.txtLink;
         }
 
         private void CarregarLinks()
         {
             flowLinks.Controls.Clear();
+            _tarefa.CarregarLinks();    
 
             List<Link> links = GerenciadorLinks.LerLinks();
-
-            foreach (Link link in links)
+            if (links != null)
             {
-                var panel = new FlowLayoutPanel();
-                panel.FlowDirection = FlowDirection.LeftToRight;
-                panel.Size = new Size((flowLinks.Width - 8), 20);
-
-                var desc = new Label() { Text = link.Descricao, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 300, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68))))) };
-                var end = new Label() { Text = link.Endereco, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 430, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134))))) };
-                var editar = new LinkLabel() { Text = "Editar", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
-                var excluir = new LinkLabel() { Text = "Excluir", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
-
-                panel.Controls.Add(desc);
-                panel.Controls.Add(end);
-                panel.Controls.Add(editar);
-                panel.Controls.Add(excluir);
-
-                flowLinks.Controls.Add(panel);
-
-                editar.Click += delegate
+                foreach (Link link in links)
                 {
-                    EditarAction(link);
-                };
+                    var panel = new FlowLayoutPanel();
+                    panel.FlowDirection = FlowDirection.LeftToRight;
+                    panel.Size = new Size((flowLinks.Width - 8), 20);
 
-                excluir.Click += delegate
-                {
-                    ExcluirAction(link);
-                };
+                    var desc = new Label() { Text = link.Descricao, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 200, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68))))) };
+                    var end = new Label() { Text = link.Endereco, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 280, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134))))) };
+                    var editar = new LinkLabel() { Text = "Editar", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
+                    var excluir = new LinkLabel() { Text = "Excluir", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
+
+                    panel.Controls.Add(desc);
+                    panel.Controls.Add(end);
+                    panel.Controls.Add(editar);
+                    panel.Controls.Add(excluir);
+
+                    flowLinks.Controls.Add(panel);
+
+                    editar.Click += delegate
+                    {
+                        EditarAction(link);
+                    };
+
+                    excluir.Click += delegate
+                    {
+                        ExcluirAction(link);
+                    };
+                }
             }
         }
 
@@ -84,8 +89,6 @@ namespace CertWeb
 
             descTxt.Text = link.Descricao;
             linkTxt.Text = link.Endereco;
-
-
         }
 
         private void ExcluirAction(Link link)
@@ -97,9 +100,9 @@ namespace CertWeb
         private void descTxt_Enter(object sender, EventArgs e)
         {
             var campo = (TextBox)sender;
-            if (campo.Text == "Descrição")
+            if (campo.Text == Texto.txtDesc)
             {
-                campo.Text = "";
+                campo.Text = string.Empty;
                 campo.ForeColor = Color.Black;
             }
         }
@@ -107,9 +110,9 @@ namespace CertWeb
         private void descTxt_Leave(object sender, EventArgs e)
         {
             var campo = (TextBox)sender;
-            if (campo.Text == "")
+            if (campo.Text == string.Empty)
             {
-                campo.Text = "Descrição";
+                campo.Text = Texto.txtDesc;
                 campo.ForeColor = Color.FromArgb(68,68,68);
             }
         }
@@ -117,9 +120,9 @@ namespace CertWeb
         private void linkTxt_Enter(object sender, EventArgs e)
         {
             var campo = (TextBox)sender;
-            if (campo.Text == "Link")
+            if (campo.Text == Texto.txtLink)
             {
-                campo.Text = "";
+                campo.Text = string.Empty;
                 campo.ForeColor = Color.Black;
             }
         }
@@ -127,9 +130,9 @@ namespace CertWeb
         private void linkTxt_Leave(object sender, EventArgs e)
         {
             var campo = (TextBox)sender;
-            if (campo.Text == "")
+            if (campo.Text == string.Empty)
             {
-                campo.Text = "Link";
+                campo.Text = Texto.txtLink;
                 campo.ForeColor = Color.FromArgb(68, 68, 68);
             }
         }
