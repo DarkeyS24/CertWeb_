@@ -1,6 +1,6 @@
 ﻿namespace CertWeb
 {
-    partial class Form1
+    partial class Certweb
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Certweb));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnIndicador = new System.Windows.Forms.Panel();
             this.sobreBtn = new System.Windows.Forms.Button();
@@ -38,194 +39,169 @@
             this.pnDragDrop = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.fechar = new System.Windows.Forms.Button();
-            this.pnInicial = new CertWeb.Painel();
-            this.pnTarefas = new CertWeb.Tarefas(this.pnInicial);
-            this.pnLinks = new CertWeb.Links(this.pnTarefas, this.pnInicial);
+            this.CertWebSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MenuSystemTray = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.executarBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.fecharBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnLinks = new CertWeb.Links();
+            this.TelaInicial = new CertWeb.Painel();
+            this.pnTarefas = new CertWeb.Tarefas();
             this.pnSobre = new CertWeb.Sobre();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.MenuSystemTray.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.pnIndicador);
             this.panel1.Controls.Add(this.sobreBtn);
             this.panel1.Controls.Add(this.linksBtn);
             this.panel1.Controls.Add(this.tarefasBtn);
             this.panel1.Controls.Add(this.painelBtn);
-            this.panel1.Location = new System.Drawing.Point(-6, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 739);
-            this.panel1.TabIndex = 1;
             // 
             // pnIndicador
             // 
+            resources.ApplyResources(this.pnIndicador, "pnIndicador");
             this.pnIndicador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
-            this.pnIndicador.Location = new System.Drawing.Point(11, 25);
             this.pnIndicador.Name = "pnIndicador";
-            this.pnIndicador.Size = new System.Drawing.Size(10, 100);
-            this.pnIndicador.TabIndex = 9;
             // 
             // sobreBtn
             // 
+            resources.ApplyResources(this.sobreBtn, "sobreBtn");
             this.sobreBtn.BackColor = System.Drawing.Color.Black;
             this.sobreBtn.FlatAppearance.BorderSize = 0;
-            this.sobreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sobreBtn.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sobreBtn.ForeColor = System.Drawing.Color.White;
-            this.sobreBtn.Image = ((System.Drawing.Image)(resources.GetObject("sobreBtn.Image")));
-            this.sobreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sobreBtn.Location = new System.Drawing.Point(7, 585);
             this.sobreBtn.Name = "sobreBtn";
-            this.sobreBtn.Size = new System.Drawing.Size(305, 100);
-            this.sobreBtn.TabIndex = 13;
-            this.sobreBtn.Text = "Sobre nós";
-            this.sobreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sobreBtn.UseVisualStyleBackColor = false;
             this.sobreBtn.Click += new System.EventHandler(this.sobreBtn_Click);
             // 
             // linksBtn
             // 
+            resources.ApplyResources(this.linksBtn, "linksBtn");
             this.linksBtn.BackColor = System.Drawing.Color.Black;
             this.linksBtn.FlatAppearance.BorderSize = 0;
-            this.linksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.linksBtn.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linksBtn.ForeColor = System.Drawing.Color.White;
-            this.linksBtn.Image = ((System.Drawing.Image)(resources.GetObject("linksBtn.Image")));
-            this.linksBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linksBtn.Location = new System.Drawing.Point(7, 395);
             this.linksBtn.Name = "linksBtn";
-            this.linksBtn.Size = new System.Drawing.Size(306, 100);
-            this.linksBtn.TabIndex = 12;
-            this.linksBtn.Text = "Links";
-            this.linksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.linksBtn.UseVisualStyleBackColor = false;
             this.linksBtn.Click += new System.EventHandler(this.linksBtn_Click);
             // 
             // tarefasBtn
             // 
+            resources.ApplyResources(this.tarefasBtn, "tarefasBtn");
             this.tarefasBtn.BackColor = System.Drawing.Color.Black;
             this.tarefasBtn.FlatAppearance.BorderSize = 0;
-            this.tarefasBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tarefasBtn.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tarefasBtn.ForeColor = System.Drawing.Color.White;
-            this.tarefasBtn.Image = ((System.Drawing.Image)(resources.GetObject("tarefasBtn.Image")));
-            this.tarefasBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tarefasBtn.Location = new System.Drawing.Point(10, 217);
             this.tarefasBtn.Name = "tarefasBtn";
-            this.tarefasBtn.Size = new System.Drawing.Size(302, 100);
-            this.tarefasBtn.TabIndex = 11;
-            this.tarefasBtn.Text = "Tarefas";
-            this.tarefasBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tarefasBtn.UseVisualStyleBackColor = false;
             this.tarefasBtn.Click += new System.EventHandler(this.tarefasBtn_Click);
             // 
             // painelBtn
             // 
+            resources.ApplyResources(this.painelBtn, "painelBtn");
             this.painelBtn.BackColor = System.Drawing.Color.Black;
             this.painelBtn.FlatAppearance.BorderSize = 0;
-            this.painelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.painelBtn.Font = new System.Drawing.Font("Leelawadee", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.painelBtn.ForeColor = System.Drawing.Color.White;
-            this.painelBtn.Image = ((System.Drawing.Image)(resources.GetObject("painelBtn.Image")));
-            this.painelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.painelBtn.Location = new System.Drawing.Point(7, 25);
             this.painelBtn.Name = "painelBtn";
-            this.painelBtn.Size = new System.Drawing.Size(306, 100);
-            this.painelBtn.TabIndex = 4;
-            this.painelBtn.Text = "Painel";
-            this.painelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.painelBtn.UseVisualStyleBackColor = false;
             this.painelBtn.Click += new System.EventHandler(this.painelBtn_Click);
             // 
             // pnDragDrop
             // 
+            resources.ApplyResources(this.pnDragDrop, "pnDragDrop");
             this.pnDragDrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
             this.pnDragDrop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnDragDrop.Location = new System.Drawing.Point(1, 0);
             this.pnDragDrop.Name = "pnDragDrop";
-            this.pnDragDrop.Size = new System.Drawing.Size(1311, 19);
-            this.pnDragDrop.TabIndex = 2;
             this.pnDragDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseDown);
             this.pnDragDrop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseMove);
             this.pnDragDrop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnDragDrop_MouseUp);
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(309, -5);
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(204, 205);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
             this.pictureBox5.TabStop = false;
             // 
             // fechar
             // 
+            resources.ApplyResources(this.fechar, "fechar");
             this.fechar.BackColor = System.Drawing.Color.White;
             this.fechar.FlatAppearance.BorderSize = 0;
-            this.fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fechar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechar.Location = new System.Drawing.Point(1260, 25);
             this.fechar.Name = "fechar";
-            this.fechar.Size = new System.Drawing.Size(35, 38);
-            this.fechar.TabIndex = 4;
-            this.fechar.Text = "X";
             this.fechar.UseVisualStyleBackColor = false;
             this.fechar.Click += new System.EventHandler(this.FecharAction);
             // 
+            // CertWebSystemTray
+            // 
+            resources.ApplyResources(this.CertWebSystemTray, "CertWebSystemTray");
+            this.CertWebSystemTray.ContextMenuStrip = this.MenuSystemTray;
+            // 
+            // MenuSystemTray
+            // 
+            resources.ApplyResources(this.MenuSystemTray, "MenuSystemTray");
+            this.MenuSystemTray.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MenuSystemTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.executarBtn,
+            this.fecharBtn});
+            this.MenuSystemTray.Name = "contextMenuStrip1";
+            // 
+            // executarBtn
+            // 
+            resources.ApplyResources(this.executarBtn, "executarBtn");
+            this.executarBtn.Name = "executarBtn";
+            this.executarBtn.Click += new System.EventHandler(this.executarBtn_Click);
+            // 
+            // fecharBtn
+            // 
+            resources.ApplyResources(this.fecharBtn, "fecharBtn");
+            this.fecharBtn.Name = "fecharBtn";
+            this.fecharBtn.Click += new System.EventHandler(this.fecharBtn_Click);
+            // 
             // pnLinks
             // 
+            resources.ApplyResources(this.pnLinks, "pnLinks");
             this.pnLinks.BackColor = System.Drawing.Color.White;
-            this.pnLinks.Location = new System.Drawing.Point(309, 182);
             this.pnLinks.Name = "pnLinks";
-            this.pnLinks.Size = new System.Drawing.Size(992, 512);
-            this.pnLinks.TabIndex = 6;
             // 
-            // pnInicial
+            // TelaInicial
             // 
-            this.pnInicial.BackColor = System.Drawing.Color.White;
-            this.pnInicial.Location = new System.Drawing.Point(315, 126);
-            this.pnInicial.Name = "pnInicial";
-            this.pnInicial.Size = new System.Drawing.Size(986, 411);
-            this.pnInicial.TabIndex = 5;
+            resources.ApplyResources(this.TelaInicial, "TelaInicial");
+            this.TelaInicial.BackColor = System.Drawing.Color.White;
+            this.TelaInicial.Name = "TelaInicial";
             // 
             // pnTarefas
             // 
+            resources.ApplyResources(this.pnTarefas, "pnTarefas");
             this.pnTarefas.BackColor = System.Drawing.Color.White;
-            this.pnTarefas.Location = new System.Drawing.Point(309, 185);
             this.pnTarefas.Name = "pnTarefas";
-            this.pnTarefas.Size = new System.Drawing.Size(994, 512);
-            this.pnTarefas.TabIndex = 7;
             // 
             // pnSobre
             // 
+            resources.ApplyResources(this.pnSobre, "pnSobre");
             this.pnSobre.BackColor = System.Drawing.Color.White;
-            this.pnSobre.Location = new System.Drawing.Point(309, 182);
             this.pnSobre.Name = "pnSobre";
-            this.pnSobre.Size = new System.Drawing.Size(994, 512);
-            this.pnSobre.TabIndex = 8;
             // 
-            // Form1
+            // Certweb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1312, 743);
             this.Controls.Add(this.fechar);
             this.Controls.Add(this.pnDragDrop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pnLinks);
-            this.Controls.Add(this.pnInicial);
+            this.Controls.Add(this.TelaInicial);
             this.Controls.Add(this.pnTarefas);
             this.Controls.Add(this.pnSobre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Certweb";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.MenuSystemTray.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,11 +216,15 @@
         private System.Windows.Forms.Button tarefasBtn;
         private System.Windows.Forms.Button sobreBtn;
         private System.Windows.Forms.Button fechar;
-        private Painel pnInicial;
+        private Painel TelaInicial;
         private Links pnLinks;
         private Tarefas pnTarefas;
         private Sobre pnSobre;
         private System.Windows.Forms.Panel pnIndicador;
+        public System.Windows.Forms.NotifyIcon CertWebSystemTray;
+        private System.Windows.Forms.ContextMenuStrip MenuSystemTray;
+        private System.Windows.Forms.ToolStripMenuItem executarBtn;
+        private System.Windows.Forms.ToolStripMenuItem fecharBtn;
     }
 }
 

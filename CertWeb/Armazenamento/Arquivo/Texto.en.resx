@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="txtDesc" xml:space="preserve">
-    <value>Descrição</value>
+    <value>Description</value>
   </data>
   <data name="txtEditar" xml:space="preserve">
-    <value>Editar</value>
+    <value>Edit</value>
   </data>
   <data name="txtExcluir" xml:space="preserve">
-    <value>Excluir</value>
+    <value>Delete</value>
   </data>
   <data name="txtLink" xml:space="preserve">
     <value>Link</value>
   </data>
   <data name="txtTarefaCompletada" xml:space="preserve">
-    <value>Tarefas realizadas com sucesso</value>
+    <value>Tasks completed successfully</value>
   </data>
 </root>

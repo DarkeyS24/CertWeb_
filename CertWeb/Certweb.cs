@@ -11,25 +11,30 @@ using CertWeb.Armazenamento.Arquivo;
 
 namespace CertWeb
 {
-    public partial class Form1 : Form
+    public partial class Certweb : Form
     {
-        public Form1()
+        public Certweb()
         {
             GerenciadorLinks.LerLinks();
             InitializeComponent();
-            PainelVisivel(pnInicial);
+
+            pnTarefas.SetTarefas(this, TelaInicial);
+            pnLinks.SetLinks(pnTarefas, TelaInicial);
+
+            PainelVisivel(TelaInicial);
         }
 
         private void FecharAction(object sender, EventArgs e)
         {
             GerenciadorLinks.SalvarLinks();
+            GerenciadorIndicadores.SalvarIndicadores(Painel.Model);
             Application.Exit();
         }
 
         private void painelBtn_Click(object sender, EventArgs e)
         {
             MoverIndicador((Button)sender);
-            PainelVisivel(pnInicial);
+            PainelVisivel(TelaInicial);
         }
 
         private void tarefasBtn_Click(object sender, EventArgs e)
@@ -57,7 +62,7 @@ namespace CertWeb
 
         private void PainelVisivel(UserControl pn)
         {
-            pnInicial.Visible = false;
+            TelaInicial.Visible = false;
             pnLinks.Visible = false;
             pnSobre.Visible = false;
             pnTarefas.Visible = false;
@@ -86,6 +91,18 @@ namespace CertWeb
                 Point dif = Point.Subtract(Cursor.Position, new Size(cursorPoint));
                 this.Location = Point.Add(formPoint, new Size(dif));
             }
+        }
+
+        private void fecharBtn_Click(object sender, EventArgs e)
+        {
+            GerenciadorLinks.SalvarLinks();
+            GerenciadorIndicadores.SalvarIndicadores(Painel.Model);
+            Application.Exit();
+        }
+
+        private void executarBtn_Click(object sender, EventArgs e)
+        {
+            pnTarefas.executarBtn_Click(this, EventArgs.Empty);
         }
     }
 }

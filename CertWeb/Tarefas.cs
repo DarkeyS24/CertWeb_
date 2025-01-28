@@ -11,15 +11,22 @@ using CertWeb.Armazenamento.Arquivo;
 using CertWeb.Armazenamento.Modelo;
 using CertWeb.Internet;
 using System.Diagnostics;
+using System.Threading;
 
 namespace CertWeb
 {
     public partial class Tarefas : UserControl
     {
         private Painel _painel;
-        public Tarefas(Painel painel)
+        private Certweb _form1;
+
+        public Tarefas()
         {
             InitializeComponent();
+        }
+        public void SetTarefas(Certweb form, Painel painel)
+        {
+            _form1 = form;
             _painel = painel;
             CarregarLinks();
         }
@@ -48,20 +55,51 @@ namespace CertWeb
             }
         }
 
-        private void executarBtn_Click(object sender, EventArgs e)
+        public void executarBtn_Click(object sender, EventArgs e)
+        {
+            Thread th = new System.Threading.Thread(Executar);
+            th.IsBackground = true;
+            th.Start(_form1);
+        }
+
+        private void Executar(Object _form1)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
+
             List<Link> links = GerenciadorLinks.LerLinks();
-            foreach (var link in links) 
+
+            double totalLinks = links.Count;
+            double linkProcessamentoAtual = 0;
+            Painel.Model.QtdErros = 0;
+            foreach (var link in links)
             {
                 GerenciadorDeAcesso.AcesssarLink(link.Endereco);
+                linkProcessamentoAtual++;
+                double porcentagem = linkProcessamentoAtual / totalLinks * 100;
+
+                if (this.InvokeRequired)
+                {
+                    Invoke(new Action(() => 
+                    {
+                        progress.Value = (int)(porcentagem);
+                    }));
+                }
             }
             sw.Stop();
             Painel.Model.TempoDecorrido = sw.Elapsed;
             Painel.Model.UltimaExecucao = DateTime.Now;
-            _painel.AtualizarDadosTela();
-            MessageBox.Show("Sucesso");
+
+
+            if (_painel.InvokeRequired) {
+                Invoke(new Action(() =>
+                {
+                    _painel.AtualizarDadosTela();
+                }));
+            }
+
+            ((Certweb)_form1).CertWebSystemTray.ShowBalloonTip(1000, "CertWeb", Texto.txtTarefaCompletada, ToolTipIcon.Info);
+            //MessageBox.Show("Sucesso");
         }
     }
 }

@@ -70,11 +70,38 @@ namespace CertWeb.Armazenamento.Arquivo {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Editar.
+        /// </summary>
+        internal static string txtEditar {
+            get {
+                return ResourceManager.GetString("txtEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Excluir.
+        /// </summary>
+        internal static string txtExcluir {
+            get {
+                return ResourceManager.GetString("txtExcluir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Link.
         /// </summary>
         internal static string txtLink {
             get {
                 return ResourceManager.GetString("txtLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tarefas realizadas com sucesso.
+        /// </summary>
+        internal static string txtTarefaCompletada {
+            get {
+                return ResourceManager.GetString("txtTarefaCompletada", resourceCulture);
             }
         }
     }

@@ -18,14 +18,21 @@ namespace CertWeb
         public Painel()
         {
             InitializeComponent();
+            Model = GerenciadorIndicadores.LerIndicadores();
+            if (Model == null) {
             Model = new PainelModel();
             Model.QtdErros = 0;
+            }
+            AtualizarDadosTela();
         }
 
         public void QuantidadeLinks()
         {
-            List<Link> link = GerenciadorLinks.LerLinks();
-            qtdLbl.Text = link.Count.ToString();
+            List<Link> links = GerenciadorLinks.LerLinks();
+            if (links != null)
+            {
+                qtdLbl.Text = links.Count.ToString();
+            }
         }
 
         public void AtualizarDadosTela()

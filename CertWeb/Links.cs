@@ -18,9 +18,15 @@ namespace CertWeb
         private Link LinkEdit { get; set; }
         private Tarefas _tarefa;
         private Painel _painel;
-        public Links(Tarefas tarefa, Painel painel)
+        private int x = 0;
+
+        public Links()
         {
             InitializeComponent();
+        }
+
+        public void SetLinks(Tarefas tarefa, Painel painel)
+        {
             _tarefa = tarefa;
             _painel = painel;
             CarregarLinks();
@@ -39,6 +45,7 @@ namespace CertWeb
             {
                 LinkEdit.Descricao = descTxt.Text;
                 LinkEdit.Endereco = linkTxt.Text;
+                LinkEdit = null;
             }
 
             CarregarLinks();
@@ -63,8 +70,8 @@ namespace CertWeb
 
                     var desc = new Label() { Text = link.Descricao, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 200, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68))))) };
                     var end = new Label() { Text = link.Endereco, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Width = 280, ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134))))) };
-                    var editar = new LinkLabel() { Text = "Editar", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
-                    var excluir = new LinkLabel() { Text = "Excluir", Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
+                    var editar = new LinkLabel() { Text = Texto.txtEditar, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
+                    var excluir = new LinkLabel() { Text = Texto.txtExcluir, Font = new Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))) };
 
                     panel.Controls.Add(desc);
                     panel.Controls.Add(end);
@@ -80,7 +87,16 @@ namespace CertWeb
 
                     excluir.Click += delegate
                     {
-                        ExcluirAction(link);
+                        if (links.Count == 1)
+                        {
+                            x = 1;
+                            ExcluirAction(link, x);
+                        }
+                        else
+                        {
+                            x = 0;
+                            ExcluirAction(link, x);
+                        }
                     };
                 }
             }
@@ -94,10 +110,19 @@ namespace CertWeb
             linkTxt.Text = link.Endereco;
         }
 
-        private void ExcluirAction(Link link)
+        private void ExcluirAction(Link link, int x)
         {
-            GerenciadorLinks.RemoverLink(link);
-            CarregarLinks();
+            if (x == 1)
+            {
+                GerenciadorLinks.RemoverLink(link);
+                GerenciadorLinks.SalvarLinks();
+                CarregarLinks();
+            }
+            else
+            {
+                GerenciadorLinks.RemoverLink(link);
+                CarregarLinks();
+            }
         }
 
         private void descTxt_Enter(object sender, EventArgs e)

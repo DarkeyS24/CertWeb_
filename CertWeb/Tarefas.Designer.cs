@@ -32,52 +32,44 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLinks = new System.Windows.Forms.FlowLayoutPanel();
             this.executarBtn = new System.Windows.Forms.Button();
+            this.progress = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Leelawadee", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 30);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 96);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Links";
             // 
             // flowLinks
             // 
-            this.flowLinks.AutoScroll = true;
+            resources.ApplyResources(this.flowLinks, "flowLinks");
             this.flowLinks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLinks.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLinks.Location = new System.Drawing.Point(28, 145);
             this.flowLinks.Name = "flowLinks";
-            this.flowLinks.Size = new System.Drawing.Size(635, 337);
-            this.flowLinks.TabIndex = 2;
-            this.flowLinks.WrapContents = false;
             // 
             // executarBtn
             // 
-            this.executarBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("executarBtn.BackgroundImage")));
-            this.executarBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            resources.ApplyResources(this.executarBtn, "executarBtn");
             this.executarBtn.FlatAppearance.BorderSize = 0;
-            this.executarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.executarBtn.Location = new System.Drawing.Point(706, 196);
             this.executarBtn.Name = "executarBtn";
-            this.executarBtn.Size = new System.Drawing.Size(257, 242);
-            this.executarBtn.TabIndex = 4;
             this.executarBtn.UseVisualStyleBackColor = true;
             this.executarBtn.Click += new System.EventHandler(this.executarBtn_Click);
             // 
+            // progress
+            // 
+            this.progress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(28)))), ((int)(((byte)(251)))));
+            resources.ApplyResources(this.progress, "progress");
+            this.progress.Name = "progress";
+            // 
             // Tarefas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.executarBtn);
             this.Controls.Add(this.flowLinks);
             this.Controls.Add(this.label1);
             this.Name = "Tarefas";
-            this.Size = new System.Drawing.Size(1000, 512);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +80,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLinks;
         private System.Windows.Forms.Button executarBtn;
+        private System.Windows.Forms.ProgressBar progress;
     }
 }
